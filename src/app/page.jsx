@@ -13,8 +13,8 @@ export default function MainPage() {
   };
 
   const navigation = [
-    { name: "Mint", href: "#" },
-    { name: "About", href: "#" },
+    { name: "Mint", href: "picture" },
+    { name: "About", href: "https://de.superteam.fun" },
   ];
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -144,7 +144,7 @@ export default function MainPage() {
               </a>
 
               <a
-                href="#"
+                href="https://de.superteam.fun"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Superteam DE <span aria-hidden="true">→</span>
