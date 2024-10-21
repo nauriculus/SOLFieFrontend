@@ -147,7 +147,7 @@ export default function MainPage() {
                 href="#"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
-                SuperTeam DE <span aria-hidden="true">→</span>
+                Superteam DE <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>

@@ -97,9 +97,9 @@ export default function TakePicturePage() {
     }
   };
 
-  const route = (mint) => {
-    router.push("/mint/" + mint)
-  }
+  const route = (uuid) => {
+    router.push("/mint/" + uuid.toString());
+  };
 
   const switchCamera = () => {
     if (camera.current) {
@@ -159,9 +159,12 @@ export default function TakePicturePage() {
                     }}
                   />
 
-                  <div className="text-2xl text-white" onClick={route}>
-                    OR Click Here!
-                    </div>
+                  <div
+                    className="mt-10 text-2xl text-white"
+                    onClick={route(uuid)}
+                  >
+                    Or Click Here!
+                  </div>
                 </div>
               )}
 
@@ -203,6 +206,17 @@ export default function TakePicturePage() {
                       Save
                     </a>
 
+                    {numberOfCameras > 1 && !image && !qrCode && (
+                      <a
+                        onClick={switchCamera}
+                        href="#"
+                        className="flex items-center gap-2 rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-black"
+                      >
+                        <CameraIcon className="h-5 w-5" aria-hidden="true" />
+                        Switch
+                      </a>
+                    )}
+
                     {!qrCode && (
                       <a
                         onClick={save}
@@ -218,14 +232,6 @@ export default function TakePicturePage() {
                 )}
               </div>
             </div>
-
-            {numberOfCameras > 1 && !image && !qrCode && (
-              <CameraIcon
-                onClick={switchCamera}
-                className="h-10 w-10"
-                aria-hidden="true"
-              />
-            )}
 
             <div className="mx-auto mt-[10%] grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200" />
 
