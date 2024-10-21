@@ -13,7 +13,7 @@ import {
 export default function TakePicturePage() {
   const router = useRouter();
 
-  const [ratio, setRatio] = useState(30 / 30);
+  const [ratio, setRatio] = useState(20 / 20);
   const [image, setImage] = useState(null);
   const camera = useRef(null);
   const [rotated, setRotated] = useState(false);
