@@ -8,7 +8,7 @@ import {
   ArrowUpCircleIcon,
   DocumentIcon,
   XMarkIcon,
-  CameraIcon
+  CameraIcon,
 } from "@heroicons/react/24/outline";
 
 export default function TakePicturePage() {
@@ -97,6 +97,10 @@ export default function TakePicturePage() {
     }
   };
 
+  const route = (mint) => {
+    router.push("/mint/" + mint)
+  }
+
   const switchCamera = () => {
     if (camera.current) {
       camera.current.switchCamera();
@@ -120,7 +124,7 @@ export default function TakePicturePage() {
         >
           <div className="flex lg:flex-1">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">SuperTeam</span>
+              <span className="sr-only">Superteam</span>
               <img
                 alt=""
                 src="/images/superteam-ftext.png"
@@ -142,7 +146,7 @@ export default function TakePicturePage() {
               {qrCode && (
                 <div className="flex mt-[2%] flex-col items-center mb-10">
                   <Canvas
-                    text={"https://localhost:3000/mint/" + uuid}
+                    text={"https://sol-fie-frontend.vercel.app/mint/" + uuid}
                     options={{
                       errorCorrectionLevel: "M",
                       margin: 3,
@@ -154,6 +158,10 @@ export default function TakePicturePage() {
                       },
                     }}
                   />
+
+                  <div className="text-2xl text-white" onClick={route}>
+                    OR Click Here!
+                    </div>
                 </div>
               )}
 
@@ -211,6 +219,14 @@ export default function TakePicturePage() {
               </div>
             </div>
 
+            {numberOfCameras > 1 && !image && !qrCode && (
+              <CameraIcon
+                onClick={switchCamera}
+                className="h-10 w-10"
+                aria-hidden="true"
+              />
+            )}
+
             <div className="mx-auto mt-[10%] grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200" />
 
             <div className="relative mt-16 h-80 lg:mt-8">
@@ -236,14 +252,6 @@ export default function TakePicturePage() {
             </div>
           </div>
         </div>
-
-        {numberOfCameras > 1 && !image && !qrCode && (
-          <CameraIcon
-            onClick={switchCamera}
-            className="h-10 w-10"
-            aria-hidden="true"
-          />
-        )}
       </div>
     </div>
   );
