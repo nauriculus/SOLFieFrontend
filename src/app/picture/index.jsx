@@ -161,7 +161,7 @@ export default function TakePicturePage() {
 
                   <div
                     className="mt-10 text-2xl text-white"
-                    onClick={route(uuid)}
+                    onClick={() => route(uuid)}
                   >
                     Or Click Here!
                   </div>
