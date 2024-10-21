@@ -44,6 +44,31 @@ module.exports = {
         1: "1px",
       },
 
+      keyframes: {
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'fade-out': {
+          '0%': { opacity: '1' },
+          '100%': { opacity: '0' },
+        },
+        'slide-in': {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+        'slide-out': {
+          '0%': { transform: 'translateY(0)', opacity: '1' },
+          '100%': { transform: 'translateY(10px)', opacity: '0' },
+        },
+      },
+      animation: {
+        'fade-in': 'fade-in 0.3s ease-in-out',
+        'fade-out': 'fade-out 0.3s ease-in-out',
+        'slide-in': 'slide-in 0.3s ease-in-out',
+        'slide-out': 'slide-out 0.3s ease-in-out',
+      },
+
       backgroundImage: {
         "dark-gradient": "linear-gradient(135deg, #070302, #ac1004, #f89003)",
         "purple-pink-gradient": "linear-gradient(135deg, #5c2be2, #9747ff)",
