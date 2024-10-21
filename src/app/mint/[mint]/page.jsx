@@ -5,6 +5,7 @@ import {
   GiftIcon,
   CheckCircleIcon,
   XMarkIcon,
+  ArrowPathIcon,
   XCircleIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -29,28 +30,26 @@ function notify(props) {
   if (type === "success" && !title) _title = "Success";
   if (type === "error" && !title) _title = "Error";
 
-  const isMobile = window.innerWidth <= 768;
-
   toast.custom((t) => (
     <div
       className={`${
         t.visible
-          ? `md:animate-toast-enter-desktop animate-toast-enter`
-          : "md:animate-toast-leave-desktop animate-toast-leave"
-      } bg-white/80 transition-all p-5 md:w-[280px] max-w-full rounded-xl border-1 border-white/20 shadow-lg relative`}
+          ? "animate-fade-in animate-slide-in"
+          : "animate-fade-out animate-slide-out"
+      } bg-white/80 p-5 md:w-[280px] max-w-full rounded-xl border border-white/20 shadow-lg relative transition-opacity duration-300 ease-in-out`}
     >
       <div className="flex flex-col items-center text-center">
         <div className="mb-2">
           {type === "success" && (
             <CheckCircleIcon
-              className="h-8 w-8 "
+              className="h-8 w-8"
               color="green"
               aria-hidden="true"
             />
           )}
 
           {type === "error" && (
-            <XCircleIcon className="h-8 w-8 " color="red" aria-hidden="true" />
+            <XCircleIcon className="h-8 w-8" color="red" aria-hidden="true" />
           )}
         </div>
 
@@ -61,7 +60,6 @@ function notify(props) {
     </div>
   ));
 }
-
 export default function MintPage({ params }) {
   const [image, setImage] = useState(null);
 
@@ -98,8 +96,10 @@ export default function MintPage({ params }) {
 function MintComponent({ image, mint }) {
   const wallet = useWallet();
   const [mintSuccess, setMintSuccess] = useState(false);
+  const [mintLoading, setMintLoading] = useState(false);
 
   async function handleMint(wallet) {
+    setMintLoading(true);
     if (!image) {
       alert("Image is invalid");
       return;
@@ -124,14 +124,17 @@ function MintComponent({ image, mint }) {
       const result = await response.json();
 
       if (response.ok) {
-        notify({ message: "NFT minted successfully.", type: "success" });
+        setMintLoading(false);
+        notify({ message: "SOLFie minted successfully.", type: "success" });
         setMintSuccess(true);
       } else {
         setMintSuccess(false);
+        setMintLoading(false);
         throw new Error(result.message);
       }
     } catch (error) {
-      console.error("Upload error:", error);
+      setMintLoading(false);
+      console.error("Mint error:", error);
     }
   }
 
@@ -169,10 +172,20 @@ function MintComponent({ image, mint }) {
                       <WalletMultiButton />
                       <button
                         onClick={() => handleMint(wallet)}
-                        className="flex items-center gap-2 rounded-md bg-white px-5 py-3.5 text-sm font-semibold text-black"
+                        disabled={mintLoading}
+                        className={`flex items-center gap-2 rounded-md ${
+                          mintLoading ? "bg-gray-400" : "bg-white"
+                        } px-5 py-3.5 text-sm font-semibold text-black`}
                       >
-                        <GiftIcon className="h-5 w-5" aria-hidden="true" />
-                        Mint
+                        {mintLoading ? (
+                          <ArrowPathIcon
+                            className="h-5 w-5 animate-spin"
+                            aria-hidden="true"
+                          />
+                        ) : (
+                          <GiftIcon className="h-5 w-5" aria-hidden="true" />
+                        )}
+                        {mintLoading ? "Minting..." : "Mint"}
                       </button>
                     </div>
                   )}
@@ -187,7 +200,7 @@ function MintComponent({ image, mint }) {
                       alt="Captured"
                       className="w-[100%] max-w-[900px] rounded-lg"
                     />
-                    NFT WAS MINTED SUCCESSFULLY!
+                    SOLFie minted sucessfully!
                   </div>
                 )}
 
