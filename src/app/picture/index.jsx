@@ -146,7 +146,7 @@ export default function TakePicturePage() {
               {qrCode && (
                 <div className="flex mt-[2%] flex-col items-center mb-10">
                   <Canvas
-                    text={"https://sol-fie-frontend.vercel.app/mint/" + uuid}
+                    text={"https://solfie.fun/mint/" + uuid}
                     options={{
                       errorCorrectionLevel: "M",
                       margin: 3,
