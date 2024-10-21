@@ -8,6 +8,7 @@ import {
   ArrowUpCircleIcon,
   DocumentIcon,
   XMarkIcon,
+  CameraIcon
 } from "@heroicons/react/24/outline";
 
 export default function TakePicturePage() {
