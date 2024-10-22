@@ -7,6 +7,7 @@ import { useQRCode } from "next-qrcode";
 import {
   ArrowUpCircleIcon,
   DocumentIcon,
+  CameraIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import { useMediaQuery } from "react-responsive";
