@@ -149,7 +149,7 @@ export default function TakePicturePage() {
                   {qrCode && (
                     <div className="flex mt-[2%] flex-col items-center mb-10">
                       <Canvas
-                        text={"https://localhost:3000/mint/" + uuid}
+                        text={"https://solfie.fun/mint/" + uuid}
                         options={{
                           errorCorrectionLevel: "M",
                           margin: 3,
@@ -297,7 +297,7 @@ export default function TakePicturePage() {
                   {qrCode && (
                     <div className="flex mt-6 flex-col items-center mb-8">
                       <Canvas
-                        text={"https://localhost:3000/mint/" + uuid}
+                        text={"https://solfie.fun/mint/" + uuid}
                         options={{
                           errorCorrectionLevel: "M",
                           margin: 3,
