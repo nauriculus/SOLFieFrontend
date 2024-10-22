@@ -29,6 +29,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-modal": "^3.16.1",
+    "react-responsive": "^10.0.0",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.23.1",
     "react-select": "^5.8.0"
