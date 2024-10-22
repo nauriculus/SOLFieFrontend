@@ -213,6 +213,20 @@ export default function TakePicturePage() {
                           Save
                         </a>
 
+                        {numberOfCameras > 1 && !image && !qrCode && (
+                          <a
+                            onClick={switchCamera}
+                            href="#"
+                            className="flex items-center gap-2 rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-black"
+                          >
+                            <CameraIcon
+                              className="h-5 w-5"
+                              aria-hidden="true"
+                            />
+                            Switch
+                          </a>
+                        )}
+
                         {!qrCode && (
                           <a
                             onClick={save}
@@ -257,14 +271,6 @@ export default function TakePicturePage() {
                 </div>
               </div>
             </div>
-
-            {numberOfCameras > 1 && !image && !qrCode && (
-              <CameraIcon
-                onClick={switchCamera}
-                className="h-10 w-10"
-                aria-hidden="true"
-              />
-            )}
           </div>
         </div>
       ) : (
@@ -396,14 +402,6 @@ export default function TakePicturePage() {
                 </div>
               </div>
             </div>
-
-            {numberOfCameras > 1 && !image && !qrCode && (
-              <CameraIcon
-                onClick={switchCamera}
-                className="h-10 w-10"
-                aria-hidden="true"
-              />
-            )}
           </div>
         </div>
       )}
