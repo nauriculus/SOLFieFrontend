@@ -160,7 +160,7 @@ export default function TakePicturePage() {
                   {qrCode && (
                     <div className="flex mt-[2%] flex-col items-center mb-10">
                       <Canvas
-                        text={"https://solfie.fun/mint/" + uuid}
+                         text={`https://phantom.app/ul/browse/https%3A%2F%2Fsolfie.fun%2Fmint%2F${uuid}?ref=https%3A%2F%2Fsolfie.fun`}
                         options={{
                           errorCorrectionLevel: "M",
                           margin: 3,
@@ -194,7 +194,7 @@ export default function TakePicturePage() {
                           Reset
                         </a>
 
-                      {!qrCode && image && (
+                        {!qrCode && image && (
                           <a
                             onClick={save}
                             disabled={qrCode}
@@ -314,12 +314,12 @@ export default function TakePicturePage() {
                   {qrCode && (
                     <div className="flex mt-6 flex-col items-center mb-8">
                       <Canvas
-                        text={"https://solfie.fun/mint/" + uuid}
+                        text={`https://phantom.app/ul/browse/https%3A%2F%2Fsolfie.fun%2Fmint%2F${uuid}?ref=https%3A%2F%2Fsolfie.fun`}
                         options={{
                           errorCorrectionLevel: "M",
                           margin: 3,
                           scale: 4,
-                          width: 250,
+                          width: 200,
                           color: {
                             dark: "#0c0706",
                             light: "#fff",
