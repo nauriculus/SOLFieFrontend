@@ -143,9 +143,19 @@ export default function TakePicturePage() {
             <div className="max-w-2xl sm:px-3 sm:py-32 lg:px-8">
               <div className="relative h-[650px] isolate overflow-hidden bg-orange/90 px-2 pt-26 shadow-2xl sm:rounded-3xl sm:px-25 md:pt-14 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0">
                 <div className="mx-auto text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-left">
-                  <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    Take A Selfie
-                  </h2>
+                  {qrCode ? (
+                    <div className="flex mt-[2%] flex-col items-center mb-10">
+                      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Mint Your SOLFie
+                      </h2>
+                    </div>
+                  ) : (
+                    <div className="flex mt-[2%] flex-col items-center mb-10">
+                      <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                        Take A Selfie
+                      </h2>
+                    </div>
+                  )}
 
                   {qrCode && (
                     <div className="flex mt-[2%] flex-col items-center mb-10">
