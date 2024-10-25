@@ -152,7 +152,7 @@ export default function TakePicturePage() {
                   ) : (
                     <div className="flex mt-[2%] flex-col items-center mb-10">
                       <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                        Take A Selfie
+                        Take A SOLFie
                       </h2>
                     </div>
                   )}
@@ -194,7 +194,7 @@ export default function TakePicturePage() {
                           Reset
                         </a>
 
-                        {!qrCode && (
+                      {!qrCode && image && (
                           <a
                             onClick={save}
                             disabled={qrCode}
@@ -237,7 +237,7 @@ export default function TakePicturePage() {
                           </a>
                         )}
 
-                        {!qrCode && (
+                        {!qrCode && image && (
                           <a
                             onClick={save}
                             disabled={qrCode}
@@ -308,7 +308,7 @@ export default function TakePicturePage() {
               <div className="relative isolate overflow-hidden bg-orange/90 px-4 py-12 shadow-2xl rounded-lg">
                 <div className="mx-auto text-center lg:mx-0 lg:flex-auto lg:py-16 lg:text-left">
                   <h2 className="text-5xl font-bold tracking-tight text-white sm:text-4xl md:text-5xl">
-                    Take A Selfie
+                    Take A SOLFie
                   </h2>
 
                   {qrCode && (

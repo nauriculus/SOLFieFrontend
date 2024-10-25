@@ -140,7 +140,7 @@ export default function MainPage() {
                 href="#"
                 className="rounded-md bg-orange px-3.5 py-2.5 text-sm font-semibold text-white"
               >
-                Get started
+                Take a SOLFie
               </a>
 
               <a
